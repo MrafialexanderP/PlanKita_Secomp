@@ -1,4 +1,4 @@
-# **Wajib dibaca**
+# **Wajib dibaca** lebih enak dibaca dipindahin ke code, kalo preview gak enak dibacanya 
 pertama masuk dulu ke folder PlanKita_Secomp
 terus masuk ke folder frontend nya pake "cd frontend"
 install si react.js nya "npm install" ditunggu install nya, karna lumayan lama

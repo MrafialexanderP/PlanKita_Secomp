@@ -1,0 +1,117 @@
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f7f8f2;
+  padding: 2.5rem 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.about-images {
+  position: relative;
+  width: 270px;
+  height: 270px;
+}
+.about-main-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: 0; top: 0;
+  box-shadow: 0 4px 24px rgba(38,49,26,0.13);
+  background: #b6d53c;
+}
+.about-main-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.about-small-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  right: -30px;
+  bottom: -10px;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 8px rgba(38,49,26,0.10);
+  background: #e6e9d8;
+}
+.about-small-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.about-img-animate:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(182,213,60,0.18);
+  z-index: 2;
+}
+.about-content {
+  flex: 2;
+  min-width: 300px;
+  padding: 0 2rem;
+}
+.about-highlight {
+  color: #b6d53c;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+.about-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0.2rem 0 0.7rem 0;
+  line-height: 1.1;
+  color: #232323;
+}
+.about-green {
+  color: #3bb54a;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+.about-benefit-icons {
+  display: flex;
+  gap: 2.5rem;
+  margin: 1.2rem 0 0.7rem 0;
+}
+.about-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 500;
+  color: #232323;
+  font-size: 1.05rem;
+}
+.about-benefit-item img {
+  width: 36px;
+  height: 36px;
+}
+.about-list {
+  list-style: disc inside;
+  color: #444;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  padding-left: 0.5rem;
+}
+.about-desc {
+  margin: 1rem 0;
+  color: #444;
+}
+.about-benefits {
+  list-style: disc inside;
+  color: #26311a;
+  font-size: 1rem;
+}
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-content {
+    padding: 1rem 0 0 0;
+  }
+  .about-small-img {
+    left: 60px;
+    top: 180px;
+  }
+} 

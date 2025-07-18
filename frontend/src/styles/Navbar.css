@@ -1,0 +1,47 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #26311a;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar__logo {
+  height: 32px;
+  width: auto;
+  margin-right: 12px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.navbar__brand {
+  font-weight: bold;
+  color: #b6d53c;
+  font-size: 1.3rem;
+  vertical-align: middle;
+  display: inline-block;
+}
+.navbar__center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.navbar__search {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: none;
+  width: 220px;
+}
+.navbar__right a {
+  color: #fff;
+  margin: 0 0.7rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.navbar__user-icon {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  vertical-align: middle;
+} 

@@ -24,9 +24,9 @@ const features = [
   },
 ];
 
-const HomePage = () => (
+const HomePage = ({ setCurrentPage }) => (
   <>
-    <Navbar />
+    <Navbar setCurrentPage={setCurrentPage} />
     <HeroSection />
     <section className="features modern-features">
       {features.map((f, i) => (

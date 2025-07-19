@@ -1,0 +1,280 @@
+.about-page-container {
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem 0;
+  color: #26311a;
+  text-transform: lowercase;
+}
+
+/* About Section */
+.about-section-page {
+  padding: 3rem 2rem;
+  border-bottom: 2px solid #e8f5e8;
+}
+
+.about-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-image-section {
+  flex: 1;
+}
+
+.about-image-placeholder {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.about-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text-section {
+  flex: 2;
+}
+
+.about-text-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #26311a;
+  margin-bottom: 1rem;
+}
+
+.about-text-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.about-features {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #26311a;
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+}
+
+/* Video Section */
+.video-section {
+  padding: 3rem 2rem;
+  border-bottom: 2px solid #e8f5e8;
+  background: #f7f8f2;
+}
+
+.video-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.video-item {
+  text-align: center;
+}
+
+.video-placeholder {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.video-label {
+  display: block;
+  font-weight: 600;
+  color: #26311a;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.video-label-bottom {
+  display: block;
+  font-weight: 600;
+  color: #26311a;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 200px;
+  background: #e8f5e8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.video-thumbnail:hover {
+  background: #b6d53c;
+}
+
+.play-icon {
+  font-size: 3rem;
+  color: #26311a;
+}
+
+/* Testimoni Section */
+.testimoni-section {
+  padding: 3rem 2rem;
+  border-bottom: 2px solid #e8f5e8;
+}
+
+.testimoni-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimoni-card {
+  background: #f7f8f2;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.testimoni-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimoni-avatar {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.testimoni-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #26311a;
+  margin-bottom: 1rem;
+}
+
+.testimoni-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.rating {
+  font-size: 1.2rem;
+}
+
+/* Developer Section */
+.developer-section {
+  padding: 3rem 2rem;
+  background: #f7f8f2;
+}
+
+.developer-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #26311a;
+  margin-bottom: 2rem;
+}
+
+.developer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.developer-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.developer-card:hover {
+  transform: translateY(-5px);
+}
+
+.developer-avatar {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.developer-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #26311a;
+  margin-bottom: 0.5rem;
+}
+
+.developer-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.developer-card p:last-child {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .about-content-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .about-features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+} 

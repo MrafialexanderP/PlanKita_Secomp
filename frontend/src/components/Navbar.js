@@ -18,6 +18,11 @@ const Navbar = ({ setCurrentPage }) => {
     setCurrentPage('about');
   };
 
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+    setCurrentPage('login');
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar__left">
@@ -31,7 +36,7 @@ const Navbar = ({ setCurrentPage }) => {
         <a href="#" onClick={handleHomeClick}>Home</a>
         <a href="#" onClick={handleContactClick}>Contact</a>
         <a href="#" onClick={handleAboutClick}>About</a>
-        <span className="navbar__user-icon">👤</span>
+        <span className="navbar__user-icon" onClick={handleLoginClick} style={{cursor: 'pointer'}}>👤</span>
       </div>
     </nav>
   );

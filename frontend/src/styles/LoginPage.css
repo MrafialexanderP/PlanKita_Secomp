@@ -1,0 +1,211 @@
+.login-container {
+  min-height: 100vh;
+  background: #f7f8f2;
+}
+
+.login-background {
+  background: url('../assets/bajakan.png') center/cover no-repeat;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(38, 49, 26, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.login-forms-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  width: 100%;
+}
+
+.form-container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  animation: formSlideIn 0.5s ease-out;
+  min-height: 500px;
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-panel {
+  background: #fff;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  border-right: 1px solid #e8f5e8;
+}
+
+.form-container .form-content + .logo-panel {
+  border-right: none;
+  border-left: 1px solid #e8f5e8;
+  order: 2;
+}
+
+.login-logo {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.login-brand {
+  font-weight: bold;
+  color: #26311a;
+  font-size: 1.4rem;
+}
+
+.form-content {
+  flex: 1;
+  padding: 3rem;
+  background: rgba(64, 64, 64, 0.9);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #26311a;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1.2rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-bottom-color: #b6d53c;
+}
+
+.input-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.submit-btn {
+  width: 100%;
+  background: #26311a;
+  color: #fff;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+  background: #1a2312;
+  transform: translateY(-2px);
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  font-size: 1rem;
+  gap: 7rem;
+}
+
+.form-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.form-links a:hover {
+  color: #b6d53c;
+}
+
+.form-container .form-content + .logo-panel + .form-links {
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .login-forms-container {
+    max-width: 500px;
+  }
+  
+  .form-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .logo-panel {
+    min-width: auto;
+    padding: 2rem;
+    order: 1;
+    border-right: none;
+    border-bottom: 1px solid #e8f5e8;
+  }
+  
+  .form-content {
+    padding: 2.5rem;
+    order: 2;
+  }
+  
+  .form-links {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+} 

@@ -206,6 +206,65 @@
   font-weight: 500;
 }
 
+.form-divider {
+  margin: 1.2rem 0 0.7rem 0;
+  border: none;
+  border-top: 1px solid #e8f5e8;
+}
+.testimoni-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #26311a;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+.testimoni-rating-input {
+  display: flex;
+  gap: 0.3rem;
+  font-size: 1.3rem;
+  margin: 0.2rem 0 0.7rem 0;
+}
+.star {
+  color: #b6d53c;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: color 0.2s, opacity 0.2s, transform 0.2s;
+  user-select: none;
+}
+.star.active {
+  color: #ffd700;
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.tab-switch {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.tab-btn {
+  background: #e8f5e8;
+  color: #26311a;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+.tab-btn.active, .tab-btn:focus {
+  background: #b6d53c;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(182,213,60,0.10);
+  z-index: 2;
+}
+.tab-btn:hover:not(.active) {
+  background: #d6eeb6;
+}
+
 @media (max-width: 900px) {
   .contact-content {
     flex-direction: column;
@@ -228,5 +287,38 @@
   .map-locations {
     position: static;
     margin-top: 1rem;
+  }
+} 
+@media (max-width: 600px) {
+  .contact-content {
+    padding: 0 0.5rem;
+  }
+  .contact-form-section, .contact-info-card {
+    padding: 1rem;
+  }
+  .contact-title {
+    font-size: 1.1rem;
+  }
+  .contact-input, .contact-textarea {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+  .contact-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+  .map-placeholder {
+    padding: 1rem;
+  }
+  .map-container iframe {
+    height: 180px;
+  }
+}
+@media (max-width: 400px) {
+  .contact-title {
+    font-size: 0.95rem;
+  }
+  .contact-info-card {
+    padding: 0.5rem;
   }
 } 

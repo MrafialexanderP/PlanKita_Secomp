@@ -40,4 +40,40 @@
   color: #b6d53c;
   transform: scale(1.05) rotate(-2deg);
   cursor: pointer;
+}
+@media (max-width: 900px) {
+  .hero-img {
+    height: 250px;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero-section {
+    min-height: 200px;
+  }
+  .hero-img {
+    height: 150px;
+  }
+  .hero-title {
+    font-size: 1.3rem;
+  }
+  .hero-welcome {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 400px) {
+  .hero-section {
+    min-height: 120px;
+  }
+  .hero-img {
+    height: 90px;
+  }
+  .hero-title {
+    font-size: 1rem;
+  }
+  .hero-welcome {
+    font-size: 0.6rem;
+  }
 } 

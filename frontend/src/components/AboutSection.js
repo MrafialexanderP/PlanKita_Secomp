@@ -16,7 +16,6 @@ const AboutSection = () => (
       </div>
     </div>
     <div className="about-content">
-      <span className="about-highlight">Pertanian Kita</span>
       <h1 className="about-title">Pertanian Cerdas &<br/>Sistem Perawatan<br/>Tanaman Otomatis</h1>
       <p className="about-green">PlantKita hadir untuk membantu Anda merawat tanaman Anda secara cerdas dan efisien.</p>
       <p className="about-desc">

@@ -6,3 +6,4 @@ buat run react.js "npm start/npm run dev" sama aja kok, cuma lebih simple npm st
 kalo mau install icon "npm install react-icon" soalnya tadi gua nambahin icon jadi harus install dulu, kalo gak nanti error
 sama install "npm install react-slick slick-carousel" itu buat yang geser gambar otomatis di homepage
 
+backend nya belum sempet ke push jadi masih kosong file nya soalnya error, nanti di push

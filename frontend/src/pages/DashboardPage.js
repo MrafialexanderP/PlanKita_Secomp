@@ -207,11 +207,11 @@ const DashboardPage = ({ setCurrentPage }) => {
             <FaCog />
             <span>Kontrol</span>
           </div>
-          <div className="nav-item">
+          <div className="nav-item" onClick={() => setCurrentPage('schedule')}>
             <FaCalendarAlt />
             <span>Jadwal</span>
           </div>
-          <div className="nav-item">
+          <div className="nav-item" onClick={() => setCurrentPage('settings')}>
             <FaUser />
             <span>Pengaturan</span>
           </div>

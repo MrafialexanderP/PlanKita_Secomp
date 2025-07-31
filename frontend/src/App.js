@@ -6,6 +6,8 @@ import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import DashboardPage from "./pages/DashboardPage";
 import ControlPage from "./pages/ControlPage";
+import SchedulePage from "./pages/SchedulePage";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -24,6 +26,10 @@ function App() {
         return <DashboardPage setCurrentPage={setCurrentPage} />;
       case 'control':
         return <ControlPage setCurrentPage={setCurrentPage} />;
+      case 'schedule':
+        return <SchedulePage setCurrentPage={setCurrentPage} />;
+      case 'settings':
+        return <SettingsPage setCurrentPage={setCurrentPage} />;
       case 'home':
       default:
         return <HomePage setCurrentPage={setCurrentPage} />;

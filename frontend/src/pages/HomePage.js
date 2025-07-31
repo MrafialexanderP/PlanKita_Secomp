@@ -27,7 +27,7 @@ const features = [
 const HomePage = ({ setCurrentPage }) => (
   <>
     <Navbar setCurrentPage={setCurrentPage} />
-    <HeroSection />
+    <HeroSection setCurrentPage={setCurrentPage} />
     <section className="features modern-features">
       {features.map((f, i) => (
         <div className="feature-animate" key={f.title} style={{animationDelay: `${i * 0.15}s`}}>

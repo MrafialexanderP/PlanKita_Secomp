@@ -7,7 +7,7 @@ import "../styles/HeroSection.css";
 
 const images = [bajakan, bajakan]; // Tambah gambar jika ada
 
-const HeroSection = () => {
+const HeroSection = ({ setCurrentPage }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -28,6 +28,14 @@ const HeroSection = () => {
             <div className="hero-overlay">
               <p className="hero-welcome">SELAMAT DATANG DI PERTANIAN CERDAS DAN SISTEM PERAWATAN OTOMATIS</p>
               <h1 className="hero-title animate-title">Agriculture & Smart Plant</h1>
+              <div className="hero-buttons">
+                <button 
+                  className="dashboard-btn"
+                  onClick={() => setCurrentPage('dashboard')}
+                >
+                  Akses Dashboard
+                </button>
+              </div>
             </div>
           </div>
         ))}

@@ -14,7 +14,8 @@ import {
   FaLightbulb,
   FaMicrochip,
   FaWifi,
-  FaSignOutAlt
+  FaSignOutAlt,
+  FaLeaf
 } from 'react-icons/fa';
 import { Line } from 'react-chartjs-2';
 import {
@@ -402,4 +403,4 @@ const DashboardPage = ({ setCurrentPage }) => {
   );
 };
 
-export default DashboardPage; 
+export default DashboardPage;

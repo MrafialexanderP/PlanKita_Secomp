@@ -17,7 +17,7 @@ import {
   FaSignOutAlt,
   FaBell,
   FaBellSlash,
-  FaRepeat,
+  FaSyncAlt, 
   FaPlay,
   FaPause,
   FaStop,
@@ -32,6 +32,7 @@ const SchedulePage = ({ setCurrentPage }) => {
   const [activeTab, setActiveTab] = useState('daily');
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingSchedule, setEditingSchedule] = useState(null);
+  const [showAddForm, setShowAddForm] = useState(false);
 
   // Schedule states
   const [schedules, setSchedules] = useState({
@@ -195,7 +196,7 @@ const SchedulePage = ({ setCurrentPage }) => {
     }
   };
 
-  const editSchedule = (schedule) => {
+  const startEditSchedule = (schedule) => {
     setEditingSchedule(schedule);
     setNewSchedule({
       name: schedule.name,
@@ -205,7 +206,7 @@ const SchedulePage = ({ setCurrentPage }) => {
       days: schedule.days,
       isActive: schedule.isActive
     });
-    setShowAddModal(true);
+    setShowAddForm(true);
   };
 
   const addSchedule = () => {
@@ -218,47 +219,45 @@ const SchedulePage = ({ setCurrentPage }) => {
       days: [],
       isActive: true
     });
-    setShowAddModal(true);
+    setShowAddForm(true);
   };
 
   const saveSchedule = () => {
     if (!newSchedule.name.trim()) {
-      alert('Nama jadwal harus diisi!');
+      alert('Nama jadwal wajib diisi!');
       return;
     }
-
     if (newSchedule.days.length === 0) {
       alert('Pilih minimal satu hari!');
       return;
     }
 
     if (editingSchedule) {
-      // Update existing schedule
+      // Edit mode
       setSchedules(prev => ({
         ...prev,
-        [activeTab]: prev[activeTab].map(schedule =>
-          schedule.id === editingSchedule.id
-            ? { ...schedule, ...newSchedule }
-            : schedule
+        [activeTab]: prev[activeTab].map(sch =>
+          sch.id === editingSchedule.id
+            ? { ...sch, ...newSchedule }
+            : sch
         )
       }));
     } else {
-      // Add new schedule
-      const newId = Math.max(...schedules[activeTab].map(s => s.id), 0) + 1;
-      const scheduleToAdd = {
-        id: newId,
-        ...newSchedule,
-        lastRun: 'Belum pernah',
-        nextRun: 'Segera'
-      };
-
+      // Tambah baru
       setSchedules(prev => ({
         ...prev,
-        [activeTab]: [...prev[activeTab], scheduleToAdd]
+        [activeTab]: [
+          ...prev[activeTab],
+          {
+            ...newSchedule,
+            id: Date.now(),
+            lastRun: '-',
+            nextRun: '-'
+          }
+        ]
       }));
     }
-
-    setShowAddModal(false);
+    setShowAddForm(false);
     setEditingSchedule(null);
   };
 
@@ -337,7 +336,7 @@ const SchedulePage = ({ setCurrentPage }) => {
       <div className="schedule-actions">
         <button 
           className="action-btn edit-btn"
-          onClick={() => editSchedule(schedule)}
+          onClick={() => startEditSchedule(schedule)}
         >
           <FaEdit />
           <span>Edit</span>
@@ -436,7 +435,7 @@ const SchedulePage = ({ setCurrentPage }) => {
             className={`tab-btn ${activeTab === 'weekly' ? 'active' : ''}`}
             onClick={() => setActiveTab('weekly')}
           >
-            <FaRepeat />
+            <FaSyncAlt /> {/* <-- replace FaRepeat with FaSyncAlt */}
             <span>Mingguan</span>
           </button>
           <button 
@@ -448,13 +447,83 @@ const SchedulePage = ({ setCurrentPage }) => {
           </button>
         </div>
 
-        {/* Add Schedule Button */}
         <div className="add-schedule-section">
           <button className="add-btn" onClick={addSchedule}>
             <FaPlus />
             <span>Tambah Jadwal Baru</span>
           </button>
         </div>
+
+        {showAddForm && (
+          <div className="add-schedule-form">
+            <div className="form-group">
+              <label>Nama Jadwal:</label>
+              <input
+                type="text"
+                value={newSchedule.name}
+                onChange={e => setNewSchedule({ ...newSchedule, name: e.target.value })}
+                placeholder="Contoh: Penyiraman Pagi"
+              />
+            </div>
+            <div className="form-group">
+              <label>Jenis Jadwal:</label>
+              <select
+                value={newSchedule.type}
+                onChange={e => setNewSchedule({ ...newSchedule, type: e.target.value })}
+              >
+                <option value="watering">Penyiraman</option>
+                <option value="lighting">Lampu</option>
+                <option value="nutrient">Nutrisi</option>
+                <option value="maintenance">Perawatan</option>
+              </select>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Waktu:</label>
+                <input
+                  type="time"
+                  value={newSchedule.time}
+                  onChange={e => setNewSchedule({ ...newSchedule, time: e.target.value })}
+                />
+              </div>
+              <div className="form-group">
+                <label>Durasi (menit):</label>
+                <input
+                  type="number"
+                  min="1"
+                  value={newSchedule.duration}
+                  onChange={e => setNewSchedule({ ...newSchedule, duration: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Hari:</label>
+              <div className="days-selector">
+                {['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'].map(day => (
+                  <button
+                    key={day}
+                    type="button"
+                    className={`day-btn${newSchedule.days.includes(day) ? ' selected' : ''}`}
+                    onClick={() => {
+                      setNewSchedule(ns => ({
+                        ...ns,
+                        days: ns.days.includes(day)
+                          ? ns.days.filter(d => d !== day)
+                          : [...ns.days, day]
+                      }));
+                    }}
+                  >
+                    {day}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button className="btn" onClick={() => setShowAddForm(false)}>Batal</button>
+              <button className="btn btn-primary" onClick={saveSchedule}>Simpan</button>
+            </div>
+          </div>
+        )}
 
         {/* Schedule Content */}
         <div className="schedule-content">
@@ -470,103 +539,22 @@ const SchedulePage = ({ setCurrentPage }) => {
           <div className="modal-overlay">
             <div className="modal">
               <div className="modal-header">
-                <h3>{editingSchedule ? 'Edit Jadwal' : 'Tambah Jadwal Baru'}</h3>
-                <button 
-                  className="close-btn"
-                  onClick={() => setShowAddModal(false)}
-                >
-                  ×
-                </button>
+                <h3>Tambah Jadwal Baru</h3>
+                <button className="close-btn" onClick={() => setShowAddModal(false)}>×</button>
               </div>
-              
               <div className="modal-body">
                 <div className="form-group">
                   <label>Nama Jadwal:</label>
-                  <input 
+                  <input
                     type="text"
                     value={newSchedule.name}
-                    onChange={(e) => setNewSchedule(prev => ({ ...prev, name: e.target.value }))}
-                    placeholder="Contoh: Penyiraman Pagi"
+                    onChange={e => setNewSchedule({ ...newSchedule, name: e.target.value })}
                   />
                 </div>
-                
-                <div className="form-group">
-                  <label>Tipe Jadwal:</label>
-                  <select 
-                    value={newSchedule.type}
-                    onChange={(e) => setNewSchedule(prev => ({ ...prev, type: e.target.value }))}
-                  >
-                    <option value="watering">Penyiraman</option>
-                    <option value="nutrient">Nutrisi</option>
-                    <option value="lighting">Pencahayaan</option>
-                    <option value="climate">Iklim</option>
-                    <option value="maintenance">Pemeliharaan</option>
-                  </select>
-                </div>
-                
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Waktu:</label>
-                    <input 
-                      type="time"
-                      value={newSchedule.time}
-                      onChange={(e) => setNewSchedule(prev => ({ ...prev, time: e.target.value }))}
-                    />
-                  </div>
-                  
-                  <div className="form-group">
-                    <label>Durasi (menit):</label>
-                    <input 
-                      type="number"
-                      value={newSchedule.duration}
-                      onChange={(e) => setNewSchedule(prev => ({ ...prev, duration: parseInt(e.target.value) }))}
-                      min="1"
-                      max="120"
-                    />
-                  </div>
-                </div>
-                
-                <div className="form-group">
-                  <label>Hari:</label>
-                  <div className="days-selector">
-                    {['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'].map(day => (
-                      <button
-                        key={day}
-                        type="button"
-                        className={`day-btn ${newSchedule.days.includes(day) ? 'selected' : ''}`}
-                        onClick={() => toggleDay(day)}
-                      >
-                        {day.slice(0, 3)}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="form-group">
-                  <label>
-                    <input 
-                      type="checkbox"
-                      checked={newSchedule.isActive}
-                      onChange={(e) => setNewSchedule(prev => ({ ...prev, isActive: e.target.checked }))}
-                    />
-                    Aktifkan jadwal
-                  </label>
-                </div>
               </div>
-              
               <div className="modal-footer">
-                <button 
-                  className="btn btn-secondary"
-                  onClick={() => setShowAddModal(false)}
-                >
-                  Batal
-                </button>
-                <button 
-                  className="btn btn-primary"
-                  onClick={saveSchedule}
-                >
-                  {editingSchedule ? 'Update' : 'Simpan'}
-                </button>
+                <button className="btn" onClick={() => setShowAddModal(false)}>Batal</button>
+                <button className="btn btn-primary" onClick={saveSchedule}>Simpan</button>
               </div>
             </div>
           </div>
@@ -576,4 +564,4 @@ const SchedulePage = ({ setCurrentPage }) => {
   );
 };
 
-export default SchedulePage; 
+export default SchedulePage;

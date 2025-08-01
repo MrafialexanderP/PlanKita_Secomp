@@ -426,31 +426,36 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .modal {
-  background: white;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
+  position: relative; /* Tambahkan ini agar .close-btn absolute bekerja di dalam modal */
+  background: #fff;
+  border-radius: 8px;
+  padding: 0; /* padding diatur di header/body/footer */
+  min-width: 320px;
+  max-width: 95vw;
   max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 16px 24px 16px 24px; /* Kurangi padding agar tidak terlalu tinggi */
   border-bottom: 1px solid #eee;
+  position: relative;
 }
 
 .modal-header h3 {
@@ -463,34 +468,27 @@
 .close-btn {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 16px;
+  right: 24px;
   cursor: pointer;
-  color: #666;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.close-btn:hover {
-  background: #f8f9fa;
-  color: #333;
+  line-height: 1;
 }
 
 .modal-body {
-  padding: 20px;
+  padding: 20px 24px;
+  overflow-y: auto;
+  max-height: 50vh; /* Biar tidak keluar layar jika form panjang */
 }
 
 .modal-footer {
   display: flex;
   gap: 10px;
-  padding: 20px;
+  padding: 16px 24px;
   border-top: 1px solid #eee;
   justify-content: flex-end;
+  background: #fafafa;
 }
 
 /* Form Styles */
@@ -588,6 +586,16 @@
   background: #5a6268;
 }
 
+/* Add Schedule Form */
+.add-schedule-form {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .schedule-container {
@@ -658,4 +666,4 @@
 
 .main-content::-webkit-scrollbar-thumb:hover {
   background: #555;
-} 
+}

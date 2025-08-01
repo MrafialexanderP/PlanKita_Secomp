@@ -823,4 +823,4 @@ const ControlPage = ({ setCurrentPage }) => {
   );
 };
 
-export default ControlPage; 
+export default ControlPage;

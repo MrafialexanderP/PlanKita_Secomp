@@ -307,32 +307,38 @@
 }
 
 /* Control Grid */
-.control-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+.control-grid.horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 }
 
-.control-info, .control-settings, .control-actions {
+.control-info,
+.control-settings,
+.control-actions {
+  flex: 1 1 0;
+  min-width: 220px;
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 0; 
 }
 
-.control-info h4, .control-settings h4, .control-actions h4 {
-  margin: 0 0 15px 0;
-  color: #333;
-  font-size: 16px;
+/* Judul Box */
+.control-info h4,
+.control-settings h4,
+.control-actions h4 {
+  font-size: 18px;
   font-weight: 600;
+  margin-bottom: 18px;
+  color: #2d5a27;
 }
 
-/* Status Indicator */
+/* Status Sistem */
 .status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 15px;
 }
 
 .status-dot {
@@ -340,241 +346,63 @@
   height: 12px;
   border-radius: 50%;
   background: #28a745;
+  display: inline-block;
 }
 
-/* Tank Level */
-.tank-level {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.tank-indicator {
-  width: 60px;
-  height: 120px;
-  background: #e9ecef;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.tank-fill {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to top, #4CAF50, #45a049);
-  transition: height 0.3s ease;
-}
-
-/* Setting Groups */
-.setting-group {
-  margin-bottom: 15px;
-}
-
+/* Form Input */
 .setting-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #666;
   font-size: 14px;
   font-weight: 500;
+  margin-bottom: 4px;
 }
 
-.setting-group input, .setting-group select {
-  width: 100%;
+.setting-group input,
+.setting-group select {
+  font-size: 15px;
   padding: 8px 12px;
-  border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
-}
-
-.setting-group input:focus, .setting-group select:focus {
-  outline: none;
-  border-color: #4CAF50;
-}
-
-.setting-group input[type="range"] {
-  padding: 0;
-}
-
-.setting-group input[type="checkbox"] {
-  width: auto;
-  margin-right: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 14px;
 }
 
 /* Action Buttons */
 .action-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  justify-content: center;
 }
 
 .btn-primary {
-  background: #007bff;
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #0056b3;
+  background: #4CAF50;
+  color: #fff;
 }
 
 .btn-warning {
   background: #ffc107;
-  color: #212529;
-}
-
-.btn-warning:hover {
-  background: #e0a800;
+  color: #333;
 }
 
 .btn-danger {
   background: #dc3545;
-  color: white;
-}
-
-.btn-danger:hover {
-  background: #c82333;
-}
-
-.btn-info {
-  background: #17a2b8;
-  color: white;
-}
-
-.btn-info:hover {
-  background: #138496;
-}
-
-/* Climate Status */
-.climate-status {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.climate-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background: #f8f9fa;
-  border-radius: 6px;
-}
-
-.climate-item svg {
-  color: #4CAF50;
-  font-size: 18px;
-}
-
-/* Monitoring Grid */
-.monitoring-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.monitoring-card {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.monitoring-card h3 {
-  margin: 0 0 20px 0;
-  color: #333;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.monitoring-card:nth-child(1) {
-  grid-column: 1 / -1;
-}
-
-/* Sensor Grid */
-.sensor-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-.sensor-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sensor-icon {
-  font-size: 24px;
-  color: #4CAF50;
-}
-
-.sensor-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sensor-name {
-  font-size: 12px;
-  color: #666;
-  font-weight: 500;
-}
-
-.sensor-value {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Activity Log */
-.activity-log {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.activity-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.activity-item svg {
-  color: #4CAF50;
-  font-size: 16px;
+  color: #fff;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .control-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 16px;
   }
-  
-  .monitoring-grid {
-    grid-template-columns: 1fr;
+  .control-box {
+    padding: 18px 10px;
   }
 }
 
@@ -615,6 +443,17 @@
   
   .sensor-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .control-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .control-box {
+    padding: 10px 4px;
+    font-size: 15px;
   }
 }
 
@@ -664,4 +503,4 @@
 
 .main-content::-webkit-scrollbar-thumb:hover {
   background: #555;
-} 
+}
